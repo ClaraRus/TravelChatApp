@@ -42,6 +42,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.VersionedParcelable.dll",
 		"Xamarin.Android.Support.ViewPager.dll",
 		"Xamarin.Essentials.dll",
+		"Interop.MSScriptControl.dll",
+		"Interop.Scripting.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

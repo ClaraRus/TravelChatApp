@@ -2,18 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:text="Hello World!"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/textView1" />
-
-  
+     <android.support.design.widget.FloatingActionButton   
+      android:layout_width="wrap_content"   
+      android:layout_height="wrap_content"   
+      android:clickable="true"   
+      android:src="@android:drawable/ic_menu_send"   
+      android:id="@+id/fab"   
+      android:tint="@android:color/white"   
+      android:layout_alignParentBottom="true"   
+      android:layout_alignParentEnd="true"
+        
+      />    
     <EditText  
         android:layout_toLeftOf="@+id/fab"  
         android:layout_alignParentBottom="true"  

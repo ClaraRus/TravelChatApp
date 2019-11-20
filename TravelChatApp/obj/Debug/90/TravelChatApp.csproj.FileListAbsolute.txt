@@ -613,3 +613,6 @@ C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\stamp\
 C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\res\values\drawable.xml
+C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\res\layout\listmessageslayout.xml
+C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\android\src\md58e4511b153223fc49dc0a73462f23802\ListViewAdapter.java
