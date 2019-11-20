@@ -13,7 +13,6 @@ external-path;C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\D
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 item;obj\Debug\90\res\values\styles.xml
-LinearLayout;obj\Debug\90\res\layout\layout1.xml
 LinearLayout;obj\Debug\90\res\layout\listmessageslayout.xml
 ListView;obj\Debug\90\res\layout\activity_main.xml
 paths;C:\Users\Clara2\Documents\GitHub\TravelChatApp\TravelChatApp\obj\Debug\90\lp\35\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -25,5 +24,4 @@ resources;obj\Debug\90\res\values\strings.xml
 resources;obj\Debug\90\res\values\styles.xml
 string;obj\Debug\90\res\values\strings.xml
 style;obj\Debug\90\res\values\styles.xml
-TextView;obj\Debug\90\res\layout\activity_main.xml
 TextView;obj\Debug\90\res\layout\listmessageslayout.xml

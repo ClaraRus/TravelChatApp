@@ -12,12 +12,12 @@ using Android.Widget;
 
 namespace TravelChatApp.Datastore
 {
-    class Review
+    public class Review
     {
-        private string language;
-        private string text;
-        private string rating;
-        private string url;
-        private string status;
+        public string Language { get; set; }
+        public string Text { get; set; }
+        public string Rating { get; set; }
+        public string Time { get; set; }
+       
     }
 }

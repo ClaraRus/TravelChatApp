@@ -75,9 +75,24 @@ namespace TravelChatApp
 
         private async Task SearchPlaces(string input)
         {
-            var place = await GooglePlacesAPI.SearchPlaces(input);
-            foreach(Candidate c in place.Candidates)
-            textMessages.Add(new TextMessage("chatBot", c.Rating));
+            var place_id = await GooglePlacesAPI.SearchPlaces(input);
+            if(place_id.status.Equals("OK"))
+            {
+                string placeId="";
+                Place place;
+
+                foreach (Candidate c in place_id.candidates)
+                    placeId = c.place_id;
+
+                if (!placeId.Equals(""))
+                {
+                    place = await GooglePlacesAPI.DetailsOfPlace(placeId);
+                    if(place.Status.Equals("OK"))
+                        textMessages.Add(new TextMessage("chatBot", place.Result.Reviews[0].Text));
+                }
+            }
+            
+            
         }
         
     }

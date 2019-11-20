@@ -60,13 +60,14 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataOperations\Class1.cs" />
-    <Compile Include="Datastore\API.cs" />
-    <Compile Include="Datastore\Specification.cs" />
+    <Compile Include="DataOperations\API.cs" />
+    <Compile Include="Datastore\SearchPlace\Place_Id.cs" />
+    <Compile Include="Datastore\PlaceDetails\Result.cs" />
+    <Compile Include="Datastore\SearchPlace\Specification.cs" />
     <Compile Include="Datastore\TextMessage.cs" />
-    <Compile Include="Datastore\Place.cs" />
-    <Compile Include="Datastore\Review.cs" />
-    <Compile Include="Datastore\GooglePlacesAPI.cs" />
+    <Compile Include="Datastore\PlaceDetails\Place.cs" />
+    <Compile Include="Datastore\PlaceDetails\Review.cs" />
+    <Compile Include="DataOperations\GooglePlacesAPI.cs" />
     <Compile Include="ListViewAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
