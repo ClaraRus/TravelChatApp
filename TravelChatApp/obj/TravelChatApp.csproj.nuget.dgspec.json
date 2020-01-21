@@ -38,9 +38,29 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "LibSvmDotNet": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
             "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",
               "version": "[5.2.7, )"
+            },
+            "Microsoft.Rest.ClientRuntime": {
+              "target": "Package",
+              "version": "[2.3.21, )"
+            },
+            "ParallelDots": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Refractored.GifImageView": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.6.10, )"
             },
             "Xamarin.Android.Support.Core.Utils": {
               "target": "Package",
@@ -54,9 +74,21 @@
               "target": "Package",
               "version": "[28.0.0.3, )"
             },
+            "Xamarin.Android.Support.v7.CardView": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Android.Support.v7.RecyclerView": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
+            },
+            "Xamarin.FFImageLoading": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
             }
           }
         }

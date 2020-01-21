@@ -51,6 +51,29 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -61,6 +84,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataOperations\API.cs" />
+    <Compile Include="DataOperations\ChatBotConversation.cs" />
+    <Compile Include="DataOperations\InputAnalyzer.cs" />
+    <Compile Include="DataOperations\ResponseAnalyzer.cs" />
+    <Compile Include="DataOperations\ParallelDots.cs" />
+    <Compile Include="DataOperations\SkyScannerAPI.cs" />
+    <Compile Include="Datastore\FlightDetails\Carriers.cs" />
+    <Compile Include="Datastore\FlightDetails\DestinationDetails\DestinationResult.cs" />
+    <Compile Include="Datastore\FlightDetails\DestinationDetails\Places.cs" />
+    <Compile Include="Datastore\FlightDetails\FlightResult.cs" />
+    <Compile Include="Datastore\FlightDetails\InboundLeg.cs" />
+    <Compile Include="Datastore\FlightDetails\OutboundLeg.cs" />
+    <Compile Include="Datastore\FlightDetails\Quotes.cs" />
     <Compile Include="Datastore\SearchPlace\Place_Id.cs" />
     <Compile Include="Datastore\PlaceDetails\Result.cs" />
     <Compile Include="Datastore\SearchPlace\Specification.cs" />
@@ -68,7 +103,7 @@
     <Compile Include="Datastore\PlaceDetails\Place.cs" />
     <Compile Include="Datastore\PlaceDetails\Review.cs" />
     <Compile Include="DataOperations\GooglePlacesAPI.cs" />
-    <Compile Include="ListViewAdapter.cs" />
+    <Compile Include="MessageRecycler.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,16 +140,37 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="LibSvmDotNet">
+      <Version>1.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client">
       <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Rest.ClientRuntime">
+      <Version>2.3.21</Version>
+    </PackageReference>
+    <PackageReference Include="Refractored.GifImageView">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>106.6.10</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\ChatBotMessage.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\drawable.xml" />
@@ -143,6 +199,41 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\dimens.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListMessagesUserLayout.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\UserMessage.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MessageLoadingLayout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\giphy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\giphyPapper.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ChatBotMessagePositive.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ChatBotMessageNegative.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ChatBotMessageNeutral.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

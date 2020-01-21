@@ -17,7 +17,7 @@ namespace TravelChatApp.Datastore
     {
         private static string urlFindPlace = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=";
         private static string urlPlaceDetais = "https://maps.googleapis.com/maps/api/place/details/json?place_id=";
-        private static string APIKey = "AIzaSyDtsHEtgx_lpQ4CgGJJojsW_jxBZn4dr8A";
+        private static string APIKey = "AIzaSyCvjLMCo5UOJFQ086fslK1p-nsdpU-CBXo";
         public GooglePlacesAPI()
         {
             SetUri("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input");
@@ -32,7 +32,7 @@ namespace TravelChatApp.Datastore
                 urlFindPlace += input + "&inputtype=textquery&fields=place_id&key=" + APIKey;
             }
 
-            using (HttpResponseMessage response = await API.ApiClient.GetAsync(urlFindPlace))
+            using (HttpResponseMessage response =  API.ApiClient.GetAsync(urlFindPlace).Result)
             {
                     if (response.IsSuccessStatusCode)
                     {
@@ -54,12 +54,19 @@ namespace TravelChatApp.Datastore
                 urlPlaceDetais += input + "&fields=name,rating,reviews&key=" + APIKey;
             }
             
-            using (HttpResponseMessage response = await API.ApiClient.GetAsync(urlPlaceDetais))
+            using (HttpResponseMessage response =  API.ApiClient.GetAsync(urlPlaceDetais).Result)
             {
                 if (response.IsSuccessStatusCode)
                 {
                     Place place = await response.Content.ReadAsAsync<Place>();
-                    return place;
+                    if (place.Status.Equals("OK"))
+                        return place;
+                    else if(place.Status.Equals("OVER_QUERY_LIMIT"))
+                    {
+                        return place;
+
+                    }
+                    else throw new Exception("Place Error!");
                 }
                 else
                 {

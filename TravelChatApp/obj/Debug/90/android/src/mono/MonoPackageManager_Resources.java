@@ -3,8 +3,14 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "TravelChatApp.dll" comes first in this list. */
 		"TravelChatApp.dll",
+		"FFImageLoading.dll",
+		"FFImageLoading.Platform.dll",
+		"LibSvmDotNet.dll",
+		"Microsoft.Rest.ClientRuntime.dll",
 		"Newtonsoft.Json.Bson.dll",
 		"Newtonsoft.Json.dll",
+		"Refractored.GifImageView.dll",
+		"RestSharp.dll",
 		"System.Net.Http.Formatting.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",
