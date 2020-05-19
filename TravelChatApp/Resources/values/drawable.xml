@@ -2,4 +2,5 @@
 <resources>
   <drawable name="SendButton" ></drawable>
   <drawable name="RoundedRectangle"></drawable>
+  <drawable name="AirplaneIcon"></drawable>
 </resources>

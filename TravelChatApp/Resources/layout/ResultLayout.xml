@@ -1,0 +1,124 @@
+
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="1px"
+    android:minWidth="1px">
+
+
+
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="50px"
+        android:layout_marginLeft="52px"
+        android:layout_marginRight="50px"
+        android:id="@+id/textTitle" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="100px"
+        android:layout_marginLeft="48px"
+        android:layout_marginRight="52px"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:text="Small Text"
+        android:layout_marginTop="100px"
+        android:layout_marginLeft="52px"
+        android:layout_marginRight="50px"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:id="@+id/textContent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="100px"
+        android:layout_marginLeft="48px"
+        android:layout_marginRight="52px"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:src="@drawable/star"
+            android:layout_width="69.5dp"
+            android:layout_height="34.9dp"
+            android:id="@+id/star"
+         />
+
+        <TextView
+            android:layout_toRightOf="@+id/star"
+            android:id="@+id/ratingText"
+            android:layout_width="wrap_content"
+            android:layout_height="33.4dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="3.5"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:src="@drawable/heart"
+            android:layout_width="69.5dp"
+            android:layout_height="32.0dp"
+            android:id="@+id/heart"
+         />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/sentimentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Love"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/heart"/>
+
+       
+    </RelativeLayout>
+
+     <Button
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="30dp"
+            android:text="Take me there!"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/readybutton"
+           
+            android:id="@+id/direction"></Button>
+
+
+
+
+</LinearLayout>
+</ScrollView>

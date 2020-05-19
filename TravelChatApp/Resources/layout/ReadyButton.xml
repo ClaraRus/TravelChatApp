@@ -1,0 +1,28 @@
+﻿<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="1px"
+    android:minWidth="1px">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/readyButton"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft = "10dp"
+        android:layout_marginRight = "10dp"
+        android:textColor="@android:color/white"
+        android:clickable="true"
+        android:id="@+id/readyButton"
+        android:textSize="20sp"
+        android:fontFamily = "sans-serif"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAlignment="center"
+        android:minWidth="10px"
+        android:minHeight="1px"
+        android:padding="10dp"
+       />
+</RelativeLayout>

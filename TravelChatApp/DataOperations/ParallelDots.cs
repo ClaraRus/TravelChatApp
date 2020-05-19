@@ -17,9 +17,9 @@ namespace ParallelDots
 
         }
 
-        public static string GetSentiment(string text)
+        public static string GetSentiment(JArray text)
         {
-            string json = sentiment(text);
+            string json = sentiment_batch(text);
 
             double negative;   
             Double.TryParse(json.Split("negative")[1].Split(":")[1].Split(",")[0], out negative);
@@ -718,7 +718,7 @@ namespace ParallelDots
             }
         }
 
-        public string sentiment_batch(JArray text_list)
+        public static string sentiment_batch(JArray text_list)
         {
             if ( api_key != null)
             {

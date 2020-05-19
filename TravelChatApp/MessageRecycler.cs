@@ -29,21 +29,26 @@ namespace TravelChatApp
 {
     class MessageRecycler : RecyclerView.Adapter
     {
-        private MainActivity mainActivity;
-        private List<TextMessage> textMessages;
+        public static MainActivity mainActivity;
+        private List<Answer> textMessages;
         private static  int VIEW_TYPE_MESSAGE_SENT = 1;
         private static  int VIEW_TYPE_MESSAGE_RECEIVED = 2;
         private static int VIEW_TYPE_LOAD_ANSWER = 3; 
+        public static  string [] suggestions;
+        
 
-
-        public MessageRecycler(MainActivity mainActivity, List<TextMessage> textMessages)
+        public MessageRecycler(MainActivity mainActivity, List<Answer> textMessages)
         {
-            this.mainActivity = mainActivity;
+            MessageRecycler.mainActivity = mainActivity;
             this.textMessages = textMessages;
-            this.textMessages.Add(new TextMessage("Travis", "Hello, can I help you with an opinion on a place or search a flight?"));
+            Answer answer = new Answer("Travis", "Hello, can I help you?");
+            suggestions = new string[]{"Yes", "No"};
+            answer.Suggestion.Text = suggestions;
+            answer.Suggestion.IsButton = true;
+            this.textMessages.Add(answer);
         }
 
-        public List<TextMessage> TextMessages
+        public List<Answer> TextMessages
         {
             set { textMessages = value; }
             get { return textMessages; }
@@ -67,7 +72,7 @@ namespace TravelChatApp
         // Determines the appropriate ViewType according to the sender of the message.
         public override int GetItemViewType(int position)
         {
-            TextMessage message = (TextMessage)textMessages[position];
+            Answer message = (Answer)textMessages[position];
 
              if (message.Sender.Equals("Travis"))
             {
@@ -102,7 +107,7 @@ namespace TravelChatApp
             else if (viewType == VIEW_TYPE_MESSAGE_RECEIVED)
             {
                 view = inflater.Inflate(Resource.Layout.ListMessagesLayout, null);
-                return new ReceivedMessageHolder(view);
+                return new ReceivedMessageHolder(view,mainActivity);
             }
             else if (viewType == VIEW_TYPE_LOAD_ANSWER)
             {
@@ -117,7 +122,7 @@ namespace TravelChatApp
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            TextMessage message = (TextMessage)textMessages[position];
+            Answer message = (Answer)textMessages[position];
 
             switch (holder.ItemViewType)
             {
@@ -126,6 +131,7 @@ namespace TravelChatApp
                     break;
                 case 2:
                     ((ReceivedMessageHolder)holder).bind(message);
+                    
                     break;
                 case 3:
                     ((LoadAnswerMessageHolder)holder).bind();
@@ -139,27 +145,38 @@ namespace TravelChatApp
         private class SentMessageHolder : RecyclerView.ViewHolder
         {
             TextView messageText;
-
+            
             public SentMessageHolder(View itemView) : base(itemView)
             {
                 messageText = (TextView)itemView.FindViewById(Resource.Id.message_text);
             }
 
-             public void bind(TextMessage message)
+             public void bind(Answer message)
              {
-               messageText.Text = message.Text;
+                messageText.Text = message.Text;
              }
         }
 
         private class ReceivedMessageHolder : RecyclerView.ViewHolder
         {
             TextView messageText;
+            RecyclerView suggestionRecycler;
+            SuggestionRecycler adapterSuggestion;
 
-            public ReceivedMessageHolder(View itemView) : base(itemView) {
+            public ReceivedMessageHolder(View itemView, MainActivity mainActivity) : base(itemView) {
                 messageText = (TextView)itemView.FindViewById(Resource.Id.message_text);
+
+                adapterSuggestion = new SuggestionRecycler(MessageRecycler.mainActivity, MessageRecycler.suggestions);
+                suggestionRecycler = (RecyclerView)itemView.FindViewById(Resource.Id.recyclerViewSuggestions);
+                suggestionRecycler.SetLayoutManager(new GridLayoutManager(this.suggestionRecycler.Context,3, LinearLayoutManager.Horizontal, false));
+                suggestionRecycler.SetAdapter(adapterSuggestion);
+                suggestionRecycler.SetItemAnimator(new DefaultItemAnimator());
+                LayoutManager l = suggestionRecycler.GetLayoutManager();
+                //suggestionRecycler.SetLayoutManager(new LinearLayoutManager(GetBaseContext()));
+
             }
 
-            public void bind(TextMessage message) {
+            public void bind(Answer message) {
 
                 messageText.Text = message.Text;
 
@@ -170,7 +187,11 @@ namespace TravelChatApp
                     case "neutral": messageText.SetBackgroundResource(Resource.Drawable.ChatBotMessageNeutral); break;
                     default: messageText.SetBackgroundResource(Resource.Drawable.ChatBotMessage); break;
                 }
-                
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mainActivity.BaseContext);
+                suggestionRecycler.SetLayoutManager(linearLayoutManager);
+
+                adapterSuggestion.suggestions = message.Suggestion.Text;
+                adapterSuggestion.isButton = message.Suggestion.IsButton;
             }
         }
 

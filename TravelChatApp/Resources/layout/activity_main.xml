@@ -7,17 +7,30 @@
     android:layout_height="match_parent"
     >
 
-    
+    <Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="100dp"
+    android:background="#FF4500"
+    android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+    android:popupTheme="@android:style/ThemeOverlay.Material.Light" />
+     
+    <!--<include
+        android:id="@+id/toolbar"
+        layout="@layout/actionbar" /> -->
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:scrollbars="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="469.0dp"
+        android:layout_height="match_parent"
         android:background = "@android:color/white"
         android:isScrollContainer = "true"
-        android:layout_marginBottom="10dp"
-        
-    />
+        android:layout_marginBottom="0dp"
+        android:windowSoftInputMode="adjustResize"
+        android:layout_above="@+id/input" 
+        />
 
    
 
@@ -32,19 +45,20 @@
       android:layout_alignParentEnd="true"
         
       />
-
-
-
-    <EditText  
-        android:layout_toLeftOf="@+id/fab"  
-        android:layout_alignParentBottom="true"  
-        android:layout_alignParentStart="true"  
-        android:layout_width="match_parent"  
-        android:layout_height="wrap_content"  
+    <EditText
+        android:layout_toLeftOf="@+id/fab"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="58.0dp"
         android:hint="Your message"
         android:layout_marginTop="5dp"
         android:layout_toEndOf = "@id/recyclerView"
         android:id="@+id/input"
         android:windowSoftInputMode="adjustResize"
-        android:maxLines = "3"/>  
+        android:height="27dp"
+        android:maxLines = "3"
+        android:background="@android:color/white"
+        android:padding="15dp"
+        />  
  </RelativeLayout>
