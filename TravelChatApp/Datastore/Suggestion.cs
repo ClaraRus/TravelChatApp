@@ -22,6 +22,6 @@ namespace TravelChatApp.Datastore
 			set { text = value; }
 		}
 
-public bool IsButton { set; get; }
+		public bool IsButton { set; get; }
 	}
 }

@@ -80,8 +80,6 @@ namespace TravelChatApp
 
             DisplayChatMessage();
 
-            API.InitializeClient();
-
             
             fab.Click += delegate { SendMethod(); };
         }
@@ -252,9 +250,6 @@ namespace TravelChatApp
             reply.Suggestion = response.Suggestion;
             
             RunOnUiThread(new Runnable(DisplayChatMessage));
-
-
-
         }
 
 

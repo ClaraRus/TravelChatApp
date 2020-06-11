@@ -87,33 +87,24 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataOperations\RestAPICaller.cs" />
+    <Compile Include="DataOperations\TextProcessing.cs" />
     <Compile Include="Datastore\Constants.cs" />
     <Compile Include="Datastore\PlaceInformation.cs" />
     <Compile Include="Datastore\Suggestion.cs" />
-    <Compile Include="PlaceInformationActivity.cs" />
-    <Compile Include="SuggestionRecycler.cs" />
-    <Compile Include="DataOperations\API.cs" />
+    <Compile Include="Activities\PlaceInformationActivity.cs" />
+    <Compile Include="Recyclers\SuggestionRecycler.cs" />
     <Compile Include="DataOperations\ChatBotConversation.cs" />
-    <Compile Include="DataOperations\InputAnalyzer.cs" />
-    <Compile Include="DataOperations\ResponseAnalyzer.cs" />
-    <Compile Include="DataOperations\ParallelDots.cs" />
-    <Compile Include="DataOperations\SkyScannerAPI.cs" />
-    <Compile Include="Datastore\FlightDetails\Carriers.cs" />
-    <Compile Include="Datastore\FlightDetails\DestinationDetails\DestinationResult.cs" />
-    <Compile Include="Datastore\FlightDetails\DestinationDetails\Places.cs" />
-    <Compile Include="Datastore\FlightDetails\FlightResult.cs" />
-    <Compile Include="Datastore\FlightDetails\InboundLeg.cs" />
-    <Compile Include="Datastore\FlightDetails\OutboundLeg.cs" />
-    <Compile Include="Datastore\FlightDetails\Quotes.cs" />
-    <Compile Include="Datastore\SearchPlace\Place_Id.cs" />
-    <Compile Include="Datastore\PlaceDetails\Result.cs" />
-    <Compile Include="Datastore\SearchPlace\Specification.cs" />
+    <Compile Include="DataOperations\ParallelDotsAPI.cs" />
+    <Compile Include="Datastore\GoogleSearchPlace\Place_Id.cs" />
+    <Compile Include="Datastore\GooglePlaceDetails\Result.cs" />
+    <Compile Include="Datastore\GoogleSearchPlace\Specification.cs" />
     <Compile Include="Datastore\Answer.cs" />
-    <Compile Include="Datastore\PlaceDetails\Place.cs" />
-    <Compile Include="Datastore\PlaceDetails\Review.cs" />
+    <Compile Include="Datastore\GooglePlaceDetails\Place.cs" />
+    <Compile Include="Datastore\GooglePlaceDetails\Review.cs" />
     <Compile Include="DataOperations\GooglePlacesAPI.cs" />
-    <Compile Include="MessageRecycler.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Recyclers\MessageRecycler.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

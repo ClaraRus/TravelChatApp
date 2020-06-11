@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 6</AndroidDesignerPreferredDevice>
-    <SelectedDevice>HUAWEI ANE-LX1</SelectedDevice>
+    <SelectedDevice>my_device</SelectedDevice>
     <DefaultDevice>my_device</DefaultDevice>
   </PropertyGroup>
 </Project>
